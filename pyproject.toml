@@ -1,0 +1,40 @@
+[project]
+name = "dessndr"
+version = "0.0.1"
+authors = [
+  { name="DES-SN", email="bsanchez@cppm.in2p3.fr" },
+]
+description = "DES SN 5YR DR Tools"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/BrunoSanchez/DES-SN-5YR"
+Issues = "https://github.com/BrunoSanchez/DES-SN-5YR/issues"
+
+[project.scripts]
+downloaddessndr = "dessndr.scripts.download_dessndr:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+dependencies = [
+    "numpy",
+    "scipy",
+    "astropy",
+    "pandas",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["dessndr", "dessndr.scripts.*"]
+namespaces = false

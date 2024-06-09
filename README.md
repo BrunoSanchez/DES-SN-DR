@@ -1,4 +1,5 @@
 # DES-SN 5YR DR Associated Software package
+[![Documentation Status](https://readthedocs.org/projects/des-sn-dr/badge/?version=latest)](https://des-sn-dr.readthedocs.io/en/latest/?badge=latest)
 
 ## The Dark Energy Survey Supernova 5YR Cosmological analysis and Data Release
 

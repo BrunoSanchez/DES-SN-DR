@@ -5,7 +5,7 @@
 
 This repo contains the documentation and associated software package from the Dark Energy Survey Supernova Program 5-Year results.
 
-Please check our [ReadTheDocs](des-sn-dr.readthedocs.org) for all details on contents and ancillary data description.
+Please check our [ReadTheDocs](https://des-sn-dr.readthedocs.org) for all details on contents and ancillary data description.
 
 
 
@@ -55,7 +55,7 @@ $ export DES5YRDR_DATA='<dest_dir>/DES-SN5YR'
 
 ### Examples of use of this Data Release
 
-We provide some Jupyter Notebooks with examples to load and read this data, and produce some example figures. These are in the ``docs/tutorial`` directory, or in the Tutorial section on [ReadTheDocs](des-sn-dr.readthedocs.org).
+We provide some Jupyter Notebooks with examples to load and read this data, and produce some example figures. These are in the ``docs/tutorial`` directory, or in the Tutorial section on [ReadTheDocs](https://des-sn-dr.readthedocs.org).
 
 This package provides some utilities that can be imported in a Python session as
 
@@ -75,4 +75,4 @@ This package provides some utilities that can be imported in a Python session as
 
 > Light curve and ancillary data release for the full Dark Energy Survey Supernova Program. JOURNAL NUMBER. [Sánchez et al (2024)](...)
 
-**Please, for the full documentation refer to [ReadTheDocs](des-sn-dr.readthedocs.org).**
+**Please, for the full documentation refer to [ReadTheDocs](https://des-sn-dr.readthedocs.org).**

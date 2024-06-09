@@ -1,5 +1,6 @@
-# DES-SN 5YR DR Associated Software package
 [![Documentation Status](https://readthedocs.org/projects/des-sn-dr/badge/?version=latest)](https://des-sn-dr.readthedocs.io/en/latest/?badge=latest)
+
+# DES-SN 5YR DR Associated Software package
 
 ## The Dark Energy Survey Supernova 5YR Cosmological analysis and Data Release
 
@@ -9,18 +10,17 @@ Please check our [ReadTheDocs](https://des-sn-dr.readthedocs.org) for all detail
 
 
 
-## The DES-SN5YR utility package 
+## The DES-SN-DR utility package 
 
 We release basic utilities for using this data. To install this package simply clone this github repo and install locally. This is also one way to obtain the full dataset.
 
 ### Installation
 
 ```console
-$ git clone https://github.com/BrunoSanchez/DESSN5YR_TESTDR.git
-$ cd DESSN5YR_TESTDR
-$ pip install -e .
+git clone https://github.com/BrunoSanchez/DES-SN-DR.git
+cd DES-SN-DR
+pip install -e .
 ```
-<!-- $ git clone https://github.com/des-science/DES-SN5YR_DataRelease.git -->
 
 ### Acquiring the Full Release dataset
 

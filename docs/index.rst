@@ -65,9 +65,9 @@ Installation
 
 .. code-block:: bash
 
-  git clone https://github.com/BrunoSanchez/DESSN5YR_TESTDR.git
-  cd DESSN5YR_TESTDR
-  pip install -e .
+  git clone https://github.com/BrunoSanchez/DES-SN-DR.git
+  cd DES-SN-DR
+  python -m pip install -e .
 
 
 Acquiring the Full Release dataset
@@ -96,9 +96,9 @@ This package provides some utilities that can be imported in a Python session as
 
 .. code-block:: python
 
-  from dessndr import utils, data
-  phot = utils.PhotFITS(os.path.join(data.DES5YRDR_DATA, '0_DATA/DES-SN5YR_DES'))
-  lc = phot.get_lc(phot.cid_recs[0]))
+  >>> from dessndr import utils, data
+  >>> phot = utils.PhotFITS(os.path.join(data.DES5YRDR_DATA, '0_DATA/DES-SN5YR_DES'))
+  >>> lc = phot.get_lc(phot.cid_recs[0]))
 
 
 DES 5YR Tutorials 

@@ -55,7 +55,7 @@ def read_lcplot(filename):
 
     if filename.endswith('.gz'):
         config['compression'] = 'gzip'
-    
+
     return pd.read_csv(filename,  **config)
 
 
@@ -240,14 +240,25 @@ class PhotFITS(object):
         self.dump_phot = Table.read(f'{version}_PHOT.FITS.gz')
 
         self.head_df = self.dump_head.to_pandas()
-        self.head_df['SNID'] = self.head_df['SNID'].astype(int)
+        try:
+            self.head_df['SNID'] = self.head_df['SNID'].astype(int)
+            self.cid_recs = np.array(self.head_df.SNID.values, dtype=int)
+        except ValueError:
+            self.head_df['SNID'] = self.head_df['SNID'].astype(str)
+            self.cid_recs = np.array(self.head_df.SNID.values, dtype=str)
+
+        dts = self.head_df.dtypes
+        for vname, vtype in zip(dts.index, dts.values):
+            if vtype==np.dtypes.ObjectDType:
+                self.head_df[vname] = np.array(
+                    [val.strip(' ') for val in self.head_df[vname].astype(str)]
+                )
 
         self.phot_df = self.dump_phot.to_pandas()
+        self.phot_df = self.phot_df[~(self.phot_df.MJD < 0)]
         self.phot_df['BAND'] = self.phot_df.BAND.astype(str)
         self.phot_df['FIELD'] = self.phot_df.FIELD.astype(str)
         self.phot_df['MAG'] = -2.5 * np.log10(self.phot_df.FLUXCAL) + 27.5
-
-        self.cid_recs = np.array(self.head_df.SNID.values, dtype=int)
 
     def get_lc(self, cid):
         if cid in self.cid_recs:
@@ -283,13 +294,12 @@ class PhotFITS(object):
     def query_cids(self, cids):
         if not isinstance(cids, list):
             cids = [cids]
-    
+
         query_result = {}
         for cid in cids:
             if cid in self.cid_recs:
                 query_result[cid] = dict(
                     self.head_df.iloc[np.where(self.cid_recs==cid)]
                 )
-            
-        return query_result 
-    
+
+        return query_result

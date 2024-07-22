@@ -43,8 +43,25 @@ FLTCOLORS['i'] = '#2a7f13ff'
 FLTCOLORS['z'] = '#ffc627ff'
 FLTCOLORS['y'] = '#e43939ff'
 
-FLTLIST = ('g', 'r', 'i', 'z')
+FLTCOLORS['CFA3K-U/p'] = '#ac53b9ff'
+FLTCOLORS['CFA3K-B/q'] = '#3995e4ff'
+FLTCOLORS['CFA3K-V/r'] = '#51bc64ff'
+FLTCOLORS['CFA3K-i/t'] = '#2a7f13ff'
+FLTCOLORS['CFA3K-r/s'] = '#ffc627ff'
 
+FLTCOLORS['CSP-B/e'] = '#2800FF'
+FLTCOLORS['CSP-H/n'] = '#620000'
+FLTCOLORS['CSP-J/l'] = '#FF7700'
+FLTCOLORS['CSP-Y/j'] = '#36FF00'
+FLTCOLORS['CSP-g/b'] = '#008EFF'
+FLTCOLORS['CSP-i/d'] = '#970000'
+FLTCOLORS['CSP-m/h'] = '#620000'
+FLTCOLORS['CSP-n/i'] = '#2a7f13ff'
+FLTCOLORS['CSP-r/c'] = '#51bc64ff'
+FLTCOLORS['CSP-u/a'] = '#ac53b9ff'
+FLTCOLORS['CSP-y/k'] = '#e43939ff'
+
+FLTLIST = ('g', 'r', 'i', 'z')
 
 
 def plot_sn_light_curve(df, 

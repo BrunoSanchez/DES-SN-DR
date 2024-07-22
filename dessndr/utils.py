@@ -28,9 +28,39 @@ import numpy as np
 import pandas as pd
 
 from astropy.table import Table
-
+import lcdata
 
 logger = logging.getLogger(__name__)
+
+
+# Spectroscopic typing code definition
+SPEC_SNTYPE = {
+    0   : "NO_SPEC", # for the vast majority with no SNSPECT entry
+    1   : "SNIa",
+    101 : "SNIa?",
+    3   : "SNIax",
+    4   : "SNIa-pec",
+    5   : "SNI",
+    20  : "SNIIP",
+    21  : "SNIIL",
+    22  : "SNIIn",
+    23  : "SNIIb",
+    29  : "SNII",
+    122 : "SNIIn?",
+    129 : "SNII?",
+    32  : "SNIb",
+    33  : "SNIc",
+    39  : "SNIbc",
+    139 : "SNIbc?",
+    41  : "SLSN-I",
+    42  : "SLSN-II",
+    66  : "SLSN-II?",
+    141 : "SLSN-I?",
+    80  : "AGN",
+    81  : "TDE",
+    82  : "M-Star",
+    180 : "AGN?",
+}
 
 # =============================================================================
 # Reading functions
@@ -245,7 +275,8 @@ class PhotFITS(object):
             self.cid_recs = np.array(self.head_df.SNID.values, dtype=int)
         except ValueError:
             self.head_df['SNID'] = self.head_df['SNID'].astype(str)
-            self.cid_recs = np.array(self.head_df.SNID.values, dtype=str)
+            self.cid_recs = np.array(
+                [val.strip(' ') for val in self.head_df['SNID'].astype(str)])
 
         dts = self.head_df.dtypes
         for vname, vtype in zip(dts.index, dts.values):
@@ -253,21 +284,30 @@ class PhotFITS(object):
                 self.head_df[vname] = np.array(
                     [val.strip(' ') for val in self.head_df[vname].astype(str)]
                 )
+        self.head_df['SNTYPE2'] = [
+            SPEC_SNTYPE[sntype] for sntype in self.head_df.SNTYPE
+        ]
+
+        snids = np.empty(len(self.dump_phot), dtype='O')
+        for isn, snmeta in self.head_df.iterrows():
+            snids[snmeta.PTROBS_MIN-1:snmeta.PTROBS_MAX] = np.repeat(snmeta.SNID, snmeta.NOBS)
 
         self.phot_df = self.dump_phot.to_pandas()
-        self.phot_df = self.phot_df[~(self.phot_df.MJD < 0)]
+        self.phot_df['SNID'] = snids
         self.phot_df['BAND'] = self.phot_df.BAND.astype(str)
         self.phot_df['FIELD'] = self.phot_df.FIELD.astype(str)
         self.phot_df['MAG'] = -2.5 * np.log10(self.phot_df.FLUXCAL) + 27.5
+        self.phot_df['VALID_MJD'] = self.phot_df.MJD > 0
 
     def get_lc(self, cid):
         if cid in self.cid_recs:
-            imin = self.head_df.PTROBS_MIN.values[self.cid_recs==cid][0]
-            imax = self.head_df.PTROBS_MAX.values[self.cid_recs==cid][0]
+            imin = self.head_df.PTROBS_MIN.values[self.cid_recs==cid][0] - 1
+            imax = self.head_df.PTROBS_MAX.values[self.cid_recs==cid][0] - 1
 
             lc = self.phot_df[imin:imax].copy()
         else:
             logger.info(f"""CID {cid} not in records""")
+            print(f"""CID {cid} not in records""")
             return None
         return lc
 
@@ -303,3 +343,34 @@ class PhotFITS(object):
                 )
 
         return query_result
+
+    def to_lcdata(self, head_fltr=None, phot_fltr=None):
+        """Transforms the PhotFITS data content into an `lcdata` dataset 
+        and returns a copy of it
+        """
+        if phot_fltr is not None:
+            phot_df = self.phot_df[(self.phot_df.VALID_MJD) & (phot_fltr)].copy()
+        else:
+            phot_df = self.phot_df[(self.phot_df.VALID_MJD)].copy()
+
+        if head_fltr is not None:
+            head_df = self.head_df[head_fltr].copy()
+            phot_df = phot_df[phot_df.SNID.isin(head_df.SNID)].copy()
+        else:
+            head_df = self.head_df.copy()
+
+        metadata = Table()
+        metadata['object_id'] = head_df.SNID
+        metadata['ra'] = head_df.RA
+        metadata['dec'] = head_df.DEC
+        metadata['redshift'] = head_df.REDSHIFT_FINAL
+        metadata['type'] = head_df.SNTYPE2
+
+        light_curves = Table()
+        light_curves['object_id'] = phot_df.SNID
+        light_curves['time'] = phot_df.MJD
+        light_curves['flux'] = phot_df.FLUXCAL
+        light_curves['fluxerr'] = phot_df.FLUXCALERR
+        light_curves['band'] = phot_df.BAND
+
+        return lcdata.from_observations(metadata, light_curves)

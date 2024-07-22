@@ -7,5 +7,5 @@ setup(
     description='The Dark Energy Survey Supernova 5YR Data Release',
     author='DES-SN',
     license='BSD-3',
-    requires=['numpy', 'pandas', 'astropy']
+    requires=['numpy', 'pandas', 'astropy', 'lcdata']
 )

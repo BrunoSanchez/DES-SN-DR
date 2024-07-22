@@ -73,6 +73,6 @@ This package provides some utilities that can be imported in a Python session as
 
 > The Dark Energy Survey Supernova Program: Cosmological Analysis and Systematic Uncertainties JOURNAL NUMBER. [Vincenzi et al (2024).](https://ui.adsabs.harvard.edu/link_gateway/2024arXiv240102945V/doi:10.48550/arXiv.2401.02945) 
 
-> Light curve and ancillary data release for the full Dark Energy Survey Supernova Program. JOURNAL NUMBER. [Sánchez et al (2024)](...)
+> Light curve and ancillary data release for the full Dark Energy Survey Supernova Program. JOURNAL NUMBER. [Sánchez et al (2024)](https://ui.adsabs.harvard.edu/link_gateway/2024arXiv240605046S/doi:10.48550/arXiv.2406.05046)
 
 **Please, for the full documentation refer to [ReadTheDocs](https://des-sn-dr.readthedocs.org).**

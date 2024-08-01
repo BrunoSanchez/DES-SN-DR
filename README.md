@@ -52,7 +52,7 @@ $ export DES5YRDR_DATA='<dest_dir>/DES-SN5YR'
    - STAT+SYST covariance matrix
    - Single systematic covariance matrices 
 
- - **7_PIPPIN_FILES:** This folder includes the pippin input files needed to reproduce DES simulations and cosmological analysis.
+ - **7_PIPPIN_FILES:** This folder includes the Pippin input files needed to reproduce DES simulations and cosmological analysis.
 
 ### Examples of use of this Data Release
 

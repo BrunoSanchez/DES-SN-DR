@@ -1,15 +1,15 @@
 #####################################
-7 - ``Pippin`` Frameworkd Input Files 
+7 - ``Pippin`` Framework Input Files 
 #####################################
 
-`Pippin`_ code is available at https://github.com/dessn/Pippin.
+`Pippin`_ code is available at https://github.com/dessn/Pippin/tree/v1.0.
 
 See `SNANA`_ library for additional auxiliary files: https://zenodo.org/records/4015340
 
 Overview
 ========
 
-These are the ``pippin`` input file (and additional auxiliary files) to reproduce the DES-SN5YR analysis.
+These are the ``Pippin`` input file (and additional auxiliary files) to reproduce the DES-SN5YR analysis.
 
 - ``D5yr_biascor.yml``: produce biasCor simulations for low-z samples and DES sample
 - ``D5yr_sim_nominal.yml``: produce 10 DES-like and low-z-like simulated samples (for validation)

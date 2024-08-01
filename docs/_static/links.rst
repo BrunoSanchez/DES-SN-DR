@@ -36,5 +36,4 @@
 .. _CosmoSIS: https://cosmosis.readthedocs.io
 .. _emcee: https://emcee.readthedocs.io
 .. _CosmoMC: https://cosmologist.info/cosmomc/
-.. _Pippin: https://pippin.readthedocs.io/
-
+.. _Pippin: https://pippin.readthedocs.io/en/v1.0/

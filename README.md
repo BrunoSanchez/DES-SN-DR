@@ -1,4 +1,5 @@
 [![Documentation Status](https://readthedocs.org/projects/des-sn-dr/badge/?version=latest)](https://des-sn-dr.readthedocs.io/en/latest/?badge=latest)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.12720778.svg)](https://doi.org/10.5281/zenodo.12720778)
 
 # DES-SN 5YR DR Associated Software package
 

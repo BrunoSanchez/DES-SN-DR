@@ -136,11 +136,19 @@ Please always obtain the data from our official download links.
 Download the .zip from Zenodo
 -----------------------------
 
-.. warning:: UPDATE THIS LINK ONCE UPLOADED TO ZENODO 
+Download directly from our Zenodo release page (click in the badge):
+
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.12720778.svg
+  :target: https://doi.org/10.5281/zenodo.12720778
+
+
+
+Or get it straight from a terminal with: 
+
+
 .. code-block:: bash
 
-  wget https://zenodo.org/records/4015340/files/SNDATA_ROOT_2020-11-03.tar.gz?download=1
-
+  wget https://zenodo.org/records/12720778/files/DES-SN5YR-1.2.zip?download=1
 
 
 Clone DES-SN5YR Git repository

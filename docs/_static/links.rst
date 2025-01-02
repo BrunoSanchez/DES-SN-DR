@@ -7,18 +7,18 @@
 .. _`Brout et al. 2019a`: https://ui.adsabs.harvard.edu/link_gateway/2019ApJ...874..106B/doi:10.3847/1538-4357/ab06c1
 .. _`Brout et al. 2019b`: https://ui.adsabs.harvard.edu/link_gateway/2019ApJ...874..150B/doi:10.3847/1538-4357/ab08a0
 .. _`Vincenzi et al. 2019`: https://ui.adsabs.harvard.edu/link_gateway/2019MNRAS.489.5802V/doi:10.1093/mnras/stz2448
-.. _`Kessler et al. 2019`: https://arxiv.org/abs/1811.02379
+.. _`Kessler et al. 2019`: https://ui.adsabs.harvard.edu/link_gateway/2019MNRAS.485.1171K/doi:10.1093/mnras/stz463
 .. _`Moller et al. 2019`: https://academic.oup.com/mnras/article-abstract/491/3/4277/5651173
 .. _`Qu et al. 2021`: https://ui.adsabs.harvard.edu/link_gateway/2021AJ....162...67Q/doi:10.3847/1538-3881/ac0824
 .. _`Vincenzi et al. 2022`: https://ui.adsabs.harvard.edu/link_gateway/2021MNRAS.505.2819V/doi:10.1093/mnras/stab1353
-.. _`Wiseman et al. 2022`: https://arxiv.org/abs/2207.05583
+.. _`Wiseman et al. 2022`: https://ui.adsabs.harvard.edu/link_gateway/2022MNRAS.515.4587W/doi:10.1093/mnras/stac1984
 .. _`Moller et al. 2022`: https://academic.oup.com/mnras/article/514/4/5159/6611691
 .. _`Lee & Acevedo et al. 2023`: https://ui.adsabs.harvard.edu/link_gateway/2023AJ....165..222L/doi:10.3847/1538-3881/acca15
-.. _`Qu et al. 2024`: https://arxiv.org/abs/2307.13696
+.. _`Qu et al. 2024`: https://ui.adsabs.harvard.edu/link_gateway/2024ApJ...964..134Q/doi:10.3847/1538-4357/ad251d
 .. _`Möller et al. 2024`: https://ui.adsabs.harvard.edu/link_gateway/2024arXiv240218690M/doi:10.48550/arXiv.2402.18690
 .. _`Vincenzi et al. 2024`: https://ui.adsabs.harvard.edu/link_gateway/2024arXiv240102945V/doi:10.48550/arXiv.2401.02945
 .. _`DES Collaboration 2024`: https://ui.adsabs.harvard.edu/link_gateway/2024arXiv240102929D/doi:10.48550/arXiv.2401.02929
-.. _`Sanchez et al. 2024`: https://ui.adsabs.harvard.edu/abs/2024arXiv240102929D/abstract
+.. _`Sanchez et al. 2024`: https://ui.adsabs.harvard.edu/link_gateway/2024ApJ...975....5S/doi:10.3847/1538-4357/ad739a
 .. _`Wiseman et al. 2020`: https://ui.adsabs.harvard.edu/link_gateway/2020MNRAS.495.4040W/doi:10.1093/mnras/staa1302
 .. _`Kelsey et al. 2023`: https://ui.adsabs.harvard.edu/link_gateway/2023MNRAS.519.3046K/doi:10.1093/mnras/stac3711
 

@@ -4,7 +4,7 @@
 
 Overview
 ========
-We provide two Hubble diagrams, one including only the essential information for cosmology (``DES-SN5YR_HD.csv``) and one including additional metadata (``DES-SN5YR_HD+MetaData.csv``). 
+We provide two Hubble diagrams, one including only the essential information for cosmology (``DES-SN5YR_HD.csv``) and one including additional metadata (``DES-SN5YR_HD+MetaData.csv``).
 
 Using the metadata, SN distances are calculated as:
 
@@ -15,7 +15,7 @@ Hubble Diagram
 
 The released tables include parameters for the SNIa SALT3 fit, and additional metadata as well.
 
-.. note:: Additional parameter availability 
+.. note:: Additional parameter availability
 
     The distance information is provided only for the events that fall into our Hubble Diagram, and thus only these events have additional parameters (such as SALT3 fitted parameters) in the release.
 
@@ -29,12 +29,15 @@ Data Format
 - ``zHD`` - Hubble Diagram Redshift (with CMB and ``VPEC`` corrections)
 - ``zCMB`` - CMB Corrected Redshift
 - ``zHEL`` - Heliocentric Redshift
-- ``MU`` - SN distances (assuming :math:`H_0=70`)
-- ``MUERR_FINAL`` - SN distance uncertainties (renormalized for BEAMS prob of being core-collapse, also referred to as ``MUERR_RENORM``)
+- ``MU`` - SN distances
+- ``MUERR_FINAL`` - SN distance uncertainties (renormalized for BEAMS prob of being core-collapse)
 
 ``DES-SN5YR_HD+MetaData.csv`` Additional column definitions
 
-- ``MUERR_RENORM`` - SN distance uncertainties (renormalized for BEAMS prob of being core-collapse, also referred to as ``MUERR_FINAL``)
+..
+
+- ``CIDint`` - Candidate ID integer (same as ``CID`` except for those starting with letters e.g. ``sn2000aa``)
+- ``TYPE`` - Type of supernova, 1=Type Ia (everything in this file is 1)
 
 ..
 
@@ -68,11 +71,15 @@ Data Format
 - ``HOST_DEC`` - Host Galaxy DEC
 - ``HOST_ANGSEP`` - Angular separation between SN and host [arcsec]
 - ``HOST_DDLR`` - Directional light radius distance between SN and host (dimentionless)
+- ``HOST_ZSPEC`` - Host spectroscopic redshift (heliocentric frame, same as zHEL).
+- ``HOST_ZSPECERR`` - Uncertainty in host spectroscopic redshift.
 - ``VPEC`` - Peculiar velocity [km/s]
 - ``VPECERR`` - Peculiar velocity uncertainty [km/s]
 - ``MWEBV`` - Milky Way E(B-V)
 - ``HOST_LOGMASS`` - Host Galaxy Log Stellar Mass
+- ``HOST_LOGMASS_ERR`` - Uncertainty in Host Galaxy Log Stellar Mass
 - ``HOST_COLOR`` - Host Galaxy rest-frame :math:`u-r` color
+- ``HOST_COLOR_ERR`` - Uncertainty in Host Galaxy rest-frame u-r color
 
 ..
 
@@ -82,7 +89,7 @@ Data Format
 - ``FITCHI2`` - SALT3 fit chi squared
 - ``FITPROB`` - SNANA Fitprob
 - ``biasCor_mu`` - Bias correction applied to brightness :math:`m_b`
-- ``biasCorErr_mu``  - Uncertainty on bias correction applied to brightness :math:`m_b`
+.. - ``biasCorErr_mu``  - Uncertainty on bias correction applied to brightness :math:`m_b`
 - ``biasCor_mu_COVSCALE`` - Reduction in uncertainty due to selection effects (multiplicative)
 - ``biasCor_mu_COVADD``  - Uncertainty floor as given by the intrinsic scatter model (quadrature)
 
@@ -102,7 +109,7 @@ Global Parameters
 Covariance matrices
 ===================
 
-Statistical and Stat+Systematic 
+Statistical and Stat+Systematic
 -------------------------------
 
 The Statistical and Stat+Systematic Covariance matrices (both 1829 x 1829 matrices) are provided in
@@ -117,24 +124,24 @@ Single-systematic covariance matrices
 List and definition of Single-systematic covariance matrix:
 
 - ``BS20`` : Nominal vs BS20 scatter model
-- ``P21SYS1`` : Nominal vs realization 1 from MCMC dust model fitting code 
-- ``P21SYS2`` : Nominal vs realization 2 from MCMC dust model fitting code 
-- ``P21SYS3`` : Nominal vs realization 3 from MCMC dust model fitting code 
+- ``P21SYS1`` : Nominal vs realization 1 from MCMC dust model fitting code
+- ``P21SYS2`` : Nominal vs realization 2 from MCMC dust model fitting code
+- ``P21SYS3`` : Nominal vs realization 3 from MCMC dust model fitting code
 - ``W22_AGE`` : Nominal vs modelling approach described by `Wiseman et al. 2022`_
 - ``P21_HOSTCOLOR`` : Nominal vs dust-based approach dividing between red and blue galaxies
 - ``MWEBV`` : Systematics asociated with Milky Way extinction amplitude
 - ``MWCOLORLAW`` : Systematics asociated with Milky Way extinction color law
 - ``CALIBplusSALT3`` : Systematics associated with calibration and LC modelling (see ``2_LCFIT_MODEL/SALT3.DES5YR-SYS``)
-- ``CALSPEC`` : Systematics associated with calibration of CalSpec standard stars 
+- ``CALSPEC`` : Systematics associated with calibration of CalSpec standard stars
 - ``ZSHIFT`` : Systematic redshift shift
 - ``MASSLOC`` : Systematic associated to 0.3 dex shift in mass step location
 - ``ALPHAEVOL`` : Systematic associated with alpha redshift evolution
 - ``BETAEVOL`` : Systematic associated with beta redshift evolution
 - ``GAMMAEVOL`` : Systematic associated with gamma redshift evolution
 - ``SNNtraining`` : SuperNNova trained on V19 templates vs different training simulations
-- ``SNIRF`` : SuperNNova classification vs SNIRF classification 
-- ``SCONE`` : SuperNNova classification vs SCONE classification 
-- ``CClikelihood`` : Simulation-based modelling of core-collpase likelihood vs polynomial 
+- ``SNIRF`` : SuperNNova classification vs SNIRF classification
+- ``SCONE`` : SuperNNova classification vs SCONE classification
+- ``CClikelihood`` : Simulation-based modelling of core-collpase likelihood vs polynomial
 - ``FIXAB`` : Systematic associated with fixing alpha and beta parameters
 - ``SIGINT_MODEL`` : Systematic associated with color-independent modelling of sigma_int
 - ``SVAHOSTLIB`` : Nominal Host library vs Host library built using DES Science Verification data
